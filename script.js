@@ -8,6 +8,8 @@ document.querySelector('.check').addEventListener('click', function () {
 
   if (!guess) {
     document.querySelector('.message').textContent = 'No Value!';
+  } else if (guess > 20) {
+    document.querySelector('.message').textContent = `Please enter below 20`;
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number';
     document.querySelector('.number').textContent = secretNumber;
