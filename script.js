@@ -4,9 +4,14 @@ let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let score = 20;
 let highscore = 0;
 
-const modal = document.querySelector('.modal');
+const popup = document.querySelector('.popup');
 const overlay = document.querySelector('.overlay');
-const close = document.querySelector('.close-modal');
+const close = document.querySelector('.close-window');
+
+const closeWindow = function () {
+  popup.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
 
 const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
@@ -39,26 +44,33 @@ document.querySelector('.check').addEventListener('click', function () {
 
     if (score > highscore) {
       highscore = score;
-      document.querySelector('.highscore').textContent = highscore;
+      localStorage.setItem('highscore', highscore);
+      let persistedScore = localStorage.getItem('highscore');
+      document.querySelector('.highscore').textContent = persistedScore;
 
-      if (highscore >= 18) {
-        modal.classList.remove('hidden');
+      if (highscore >= 15) {
+        popup.classList.remove('hidden');
         overlay.classList.remove('hidden');
 
-        close.addEventListener('click', function () {
-          modal.classList.add('hidden');
-          overlay.classList.add('hidden');
-        });
+        close.addEventListener('click', closeWindow);
+        overlay.addEventListener('click', closeWindow);
 
-        overlay.addEventListener('click', function () {
-          modal.classList.add('hidden');
-          overlay.classList.add('hidden');
+        document.addEventListener('keydown', function (event) {
+          if (event.key == 'Escape' && !popup.classList.contains('hidden')) {
+            closeWindow();
+          }
         });
       }
+      // localStorage.setItem(
+      //   'highscore',
+      //   (document.querySelector('.highscore').textContent = highscore)
+      // );
+      // localStorage.getItem('highscore');
     }
+  }
 
-    // when entered value is not equal to secret number
-  } else if (guess !== secretNumber) {
+  // when entered value is not equal to secret number
+  else if (guess !== secretNumber) {
     if (score > 1) {
       displayMessage(guess > secretNumber ? '📈 Too High' : '📉 Too Low');
       score--;
