@@ -48,7 +48,7 @@ document.querySelector('.check').addEventListener('click', function () {
       let persistedScore = localStorage.getItem('highscore');
       document.querySelector('.highscore').textContent = persistedScore;
 
-      if (highscore >= 15) {
+      if (highscore >= 18) {
         popup.classList.remove('hidden');
         overlay.classList.remove('hidden');
 
