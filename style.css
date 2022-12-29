@@ -181,12 +181,6 @@ h1 {
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .popup {
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .between {
     font-size: 1rem;
@@ -216,5 +210,17 @@ h1 {
   .label-score,
   .label-highscore {
     font-size: 1rem;
+  }
+  .popup {
+    width: 100%;
+    font-size: 12px;
+  }
+  .result {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .close-window {
+    font-size: 3rem;
   }
 }
