@@ -45,7 +45,7 @@ document.querySelector('.check').addEventListener('click', function () {
     if (score > highscore) {
       highscore = score;
       localStorage.setItem('highscore', highscore);
-      let persistedScore = localStorage.getItem('highscore');
+      let persistedScore = Number(localStorage.getItem('highscore'));
       document.querySelector('.highscore').textContent = persistedScore;
 
       if (highscore >= 15) {
