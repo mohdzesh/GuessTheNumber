@@ -119,9 +119,9 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .popup {
   position: absolute;
@@ -213,11 +213,11 @@ h1 {
     font-size: 1rem;
   }
   .popup {
-    width: 100%;
-    font-size: 12px;
+    width: 90%;
+    padding: 8rem;
   }
   .result {
-    font-size: 1rem;
+    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
   }
